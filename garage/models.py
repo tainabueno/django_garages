@@ -6,12 +6,15 @@ from directory import models as dm
 class Garage(models.Model):
 
     is_active = models.BooleanField(default=True)
+    phone = models.CharField(max_length=255, null=True, blank=True)
+    email = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return "Garage Number %s, Owner: %s" % (self.id, self.owner)
 
     def list_of_vehicles(self):
         return json.loads(Vehicle.objects.filter(garage=self))
+
 
 class Vehicle(models.Model):
 

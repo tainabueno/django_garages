@@ -14,5 +14,5 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.garage=Garage.objects.create()
+            self.garage=Garage.objects.create(phone=self.phone, email=self.email)
         super(User, self).save()
