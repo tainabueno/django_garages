@@ -2,6 +2,7 @@ from django.db import models, transaction
 from django.contrib.auth.models import AbstractUser
 from garage.models import Garage
 
+
 class User(AbstractUser):
 
     name = models.CharField(max_length=255)
@@ -13,5 +14,5 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.garage=Garage.objects.create(phone=self.phone, email=self.email)
+            self.garage = Garage.objects.create(phone=self.phone, email=self.email)
         super(User, self).save()

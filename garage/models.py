@@ -45,7 +45,6 @@ class Vehicle(models.Model):
     BLACK = "black"
     WHITE = "white"
 
-
     COLORS = [
         (RED,   "Red"),
         (BLUE, "Blue"),
@@ -64,7 +63,6 @@ class Vehicle(models.Model):
 
     def __str__(self):
         return f"{self.model}, {self.year}, {self.color}, {self.body}"
-
 
     def config(self):
         if self.body == Vehicle.MOTORCYCLE:

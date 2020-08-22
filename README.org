@@ -52,6 +52,10 @@
 
   As rotas para consumo da API estão no diretório ~/api/~.
 
-  Para ter acesso aos usuários com garages ativas basta realizar um request do tipo GET na rota ~/api/users/~.
+  Para ter acesso aos usuários com garagens ativas basta realizar um request do tipo GET na rota ~/api/users/~.
+
+  Para ter acesso aos detalhes de um usuários basta realizar um request do tipo GET na rota ~/api/users/{id}~, onde ~{id}~ é a id do usuário.
+
+  Para ter acesso aos usuários com veículos basta realizar um request do tipo GET na rota ~/api/users/motorized/~ e os sem veículos na rota ~/api/users/non_motorized/~.
 
 10. Faça uso do git para versionar o seu código e crie um repositório no https://bitbucket.org/ para realizer esse teste, quando concluído nos envie o acesso ao repositório para avaliarmos o resultado

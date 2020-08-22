@@ -3,7 +3,7 @@ from directory.views import (
     UserView,
     SingleUserView,
     UserWithVehiclesView,
-    UserWithoutVehiclesView )
+    UserWithoutVehiclesView)
 
 app_name = 'users'
 

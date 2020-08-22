@@ -1,5 +1,4 @@
 from django import forms
-from django.db import models
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from garage.models import Garage, Vehicle
 from directory.models import User
@@ -24,9 +23,7 @@ class GarageForm(forms.ModelForm):
         return instance
 
 
-
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField(label = "Email")
 
     class Meta:
         model = User
@@ -34,7 +31,6 @@ class UserRegisterForm(UserCreationForm):
 
 
 class UserUpdateForm(UserChangeForm):
-    email = forms.EmailField(label = "Email")
 
     class Meta:
         model = User
