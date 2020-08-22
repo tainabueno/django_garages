@@ -14,40 +14,44 @@
 
 * Requisitos
 
-1. Crie uma aplicação django que guarde os dados cadastrais de uma pessoa;
-não precisa realizar um cadastro completo, apenas nome, telefone e e-mail já é
-suficiente. Para facilitar o entendimento, vamos chamar essa aplicação de
-Pessoa.
+1. Crie uma aplicação django que guarde os dados cadastrais de uma pessoa; não precisa realizar um cadastro completo, apenas nome, telefone e e-mail já é suficiente. Para facilitar o entendimento, vamos chamar essa aplicação de Pessoa.
 
-2. Crie uma segunda aplicação django para gerenciar garagens de veículos e
-seus respectivos veículos. Vamos chamar essa aplicação de Garagem.
+  A aplicação foi criada no diretório ~directory~.
 
-3. Crie dois tipos de pessoas, uma é o consumidor, e outra é o administrador do
-sistema e defina seus respectivos escopos de acessos para ambas aplicações.
+2. Crie uma segunda aplicação django para gerenciar garagens de veículos e seus respectivos veículos. Vamos chamar essa aplicação de Garagem.
 
-4. Construa uma API entre as duas aplicações, onde para cada pessoa
-cadastrada seja criada uma garagem para ela na segunda aplicação
-(Garagem).
+  A aplicação foi criada no diretório ~garage~.
 
-5. Na aplicação Garagem forneça ao usuário a lista de veículos para que ele
-possa vincular a sua garagem e em seguida faça um endpoint para exibir todos
-os veículos que esse respectivo usuário escolheu para deixar em sua garagem.
+3. Crie dois tipos de pessoas, uma é o consumidor, e outra é o administrador do sistema e defina seus respectivos escopos de acessos para ambas aplicações.
 
-6. Para cada veículo crie um método que retorne a sua cor e seu ano de
-fabricação, porém, se o veículo for uma moto, deve retornar o modelo no lugar
-da cor junto com o ano de fabricação.
+  Admistradores do sistema são definidos através do campo ~Superuser status~ e tem acesso à todos os objetos armazenados na aplicação. O escopo dos consumidores, por sua vez, está resumido aos campos disponíveis nos formulários da seção UI.
 
-7. Apenas os dados de e-mail e telefônico podem ser persistidos na aplicação
-garagem sendo assim, todos os demais dados devem permanecer na
-aplicação Pessoa.
+  As APIs também estão restritas à apenas um grupo de usuários.
 
-8. Faça uso das boas práticas de desenvolvimento e segurança de API’s e bem
-como para login dos usuários.
+4. Construa uma API entre as duas aplicações, onde para cada pessoa cadastrada seja criada uma garagem para ela na segunda aplicação (Garagem).
 
-9. Por fim crie uma API para uma aplicação terceira consultar todos os clientes
-cadastrados, todas as garagens ativas, e quais clientes possuem veículos
-vinculados a suas garagens e quais não possuem.
+  Essa tarefa está sendo realizada por uma função no método ~save~ do modelo ~User~.
 
-10. Faça uso do git para versionar o seu código e crie um repositório no
-https://bitbucket.org/ para realizer esse teste, quando concluído nos envie o
-acesso ao repositório para avaliarmos o resultado
+5. Na aplicação Garagem forneça ao usuário a lista de veículos para que ele possa vincular a sua garagem e em seguida faça um endpoint para exibir todos os veículos que esse respectivo usuário escolheu para deixar em sua garagem.
+
+  Para alterar os veículos na sua garagem o usuário deve ir até a rota ~/garage/{id}~ e selecionar os veículos que ele quer armazenar na garagem. Essa rota é restrita apenas aos donos das garagens.
+
+6. Para cada veículo crie um método que retorne a sua cor e seu ano de fabricação, porém, se o veículo for uma moto, deve retornar o modelo no lugar da cor junto com o ano de fabricação.
+
+  O método ~config~ retorna as informações solicitadas para cada um dos veículos armazenados.
+
+7. Apenas os dados de e-mail e telefônico podem ser persistidos na aplicação garagem sendo assim, todos os demais dados devem permanecer na aplicação Pessoa.
+
+  O e-mail e telefone estão sendo armazenados tanto na garagem como no usuário. Porém, na garagem, os usuários 'não administrativos' não poderão atualizá-los.
+
+8. Faça uso das boas práticas de desenvolvimento e segurança de API’s e bem como para login dos usuários.
+
+  Duas rotas para login estão disponíveis na aplicação. Tanto a rota para acesso do django admin, na rota ~admin/~ quanto a rota ~accounts/login~.
+
+9. Por fim crie uma API para uma aplicação terceira consultar todos os clientes cadastrados, todas as garagens ativas, e quais clientes possuem veículos vinculados a suas garagens e quais não possuem.
+
+  As rotas para consumo da API estão no diretório ~/api/~.
+
+  Para ter acesso aos usuários com garages ativas basta realizar um request do tipo GET na rota ~/api/users/~.
+
+10. Faça uso do git para versionar o seu código e crie um repositório no https://bitbucket.org/ para realizer esse teste, quando concluído nos envie o acesso ao repositório para avaliarmos o resultado
