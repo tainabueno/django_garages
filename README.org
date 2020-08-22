@@ -10,3 +10,44 @@
     - List of garages
     - List of vehicles per garage
     - Lists of users with and without a vehicles
+
+
+* Requisitos
+
+1. Crie uma aplicação django que guarde os dados cadastrais de uma pessoa;
+não precisa realizar um cadastro completo, apenas nome, telefone e e-mail já é
+suficiente. Para facilitar o entendimento, vamos chamar essa aplicação de
+Pessoa.
+
+2. Crie uma segunda aplicação django para gerenciar garagens de veículos e
+seus respectivos veículos. Vamos chamar essa aplicação de Garagem.
+
+3. Crie dois tipos de pessoas, uma é o consumidor, e outra é o administrador do
+sistema e defina seus respectivos escopos de acessos para ambas aplicações.
+
+4. Construa uma API entre as duas aplicações, onde para cada pessoa
+cadastrada seja criada uma garagem para ela na segunda aplicação
+(Garagem).
+
+5. Na aplicação Garagem forneça ao usuário a lista de veículos para que ele
+possa vincular a sua garagem e em seguida faça um endpoint para exibir todos
+os veículos que esse respectivo usuário escolheu para deixar em sua garagem.
+
+6. Para cada veículo crie um método que retorne a sua cor e seu ano de
+fabricação, porém, se o veículo for uma moto, deve retornar o modelo no lugar
+da cor junto com o ano de fabricação.
+
+7. Apenas os dados de e-mail e telefônico podem ser persistidos na aplicação
+garagem sendo assim, todos os demais dados devem permanecer na
+aplicação Pessoa.
+
+8. Faça uso das boas práticas de desenvolvimento e segurança de API’s e bem
+como para login dos usuários.
+
+9. Por fim crie uma API para uma aplicação terceira consultar todos os clientes
+cadastrados, todas as garagens ativas, e quais clientes possuem veículos
+vinculados a suas garagens e quais não possuem.
+
+10. Faça uso do git para versionar o seu código e crie um repositório no
+https://bitbucket.org/ para realizer esse teste, quando concluído nos envie o
+acesso ao repositório para avaliarmos o resultado
