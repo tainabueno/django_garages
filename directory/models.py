@@ -7,10 +7,10 @@ class User(AbstractUser):
 
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
-    garage = models.ForeignKey(Garage, on_delete=models.CASCADE, blank=True)
+    garage = models.OneToOneField(Garage, related_name='owner', on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
-        return "%s, %s" % (self.name, self.email)
+        return f"{self.name}"
 
     def save(self, *args, **kwargs):
         if not self.pk:

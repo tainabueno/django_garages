@@ -1,11 +1,17 @@
+import json
+
 from django.db import models
 from directory import models as dm
 
 class Garage(models.Model):
 
-    def __str__(self):
-        return "Garage Number %s, Owner: %s" % (self.id, dm.User.objects.get(id=1))
+    is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return "Garage Number %s, Owner: %s" % (self.id, self.owner)
+
+    def list_of_vehicles(self):
+        return json.loads(Vehicle.objects.filter(garage=self))
 
 class Vehicle(models.Model):
 
@@ -49,8 +55,13 @@ class Vehicle(models.Model):
     brand = models.CharField(max_length=255, choices=BRANDS)
     body = models.CharField(max_length=255, choices=BODIES)
     year = models.IntegerField()
-    garage = models.ForeignKey(Garage, blank=True, null=True, on_delete=models.CASCADE)
+    garage = models.ForeignKey(Garage, related_name='vehicles', blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.model}, {self.color}, {self.year}"
+        return f"{self.model}, {self.year}, {self.color}, {self.body}"
 
+
+    def config(self):
+        if self.body == Vehicle.MOTORCYCLE:
+            return self.model
+        return (self.color, self.year)
