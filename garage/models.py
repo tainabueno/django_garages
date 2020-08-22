@@ -1,13 +1,13 @@
 import json
 
 from django.db import models
-from directory import models as dm
+
 
 class Garage(models.Model):
 
-    is_active = models.BooleanField(default=True)
     phone = models.CharField(max_length=255, null=True, blank=True)
     email = models.CharField(max_length=255, null=True, blank=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return "Garage Number %s, Owner: %s" % (self.id, self.owner)
@@ -22,11 +22,13 @@ class Vehicle(models.Model):
     FIAT = "fiat"
     GM = "gm"
     FORD = "ford"
+    HONDA = "honda"
     BRANDS = [
         (VW,   "VW"),
         (FIAT, "Fiat"),
         (GM,   "GM"),
         (FORD, "Ford"),
+        (HONDA, "Honda"),
     ]
 
     CAR = "car"

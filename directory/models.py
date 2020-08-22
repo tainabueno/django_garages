@@ -1,7 +1,6 @@
 from django.db import models, transaction
-from garage.models import Garage
 from django.contrib.auth.models import AbstractUser
-
+from garage.models import Garage
 
 class User(AbstractUser):
 

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="garage-set">
+    {% for garage in object_list %}
+        <div class="card">
+            <h5 class="card-header">Garage {{garage.id}}</h5>
+            <div class="card-body">
+                <h5 class="card-title"><a href="/user/{{garage.owner.id}}">{{garage.owner}} {{garage.vehicles.allp}}</a></h5>
+                <a href="/garage/{{garage.id}}" 
+                   class="btn {% if user == garage.owner %}btn-primary{% else %}btn-secondary{% endif %}">
+                   Manage Cars
+                </a>
+                <span class="dot {% if garage.is_active %} green {% endif %}"></span>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="card">
+        <h5 class="card-header">Garage Spot</h5>
+        <div class="card-body">
+            <h5 class="card-title">Available</h5>
+            <a href="/user/" class="btn btn-primary">Add new user</a>
+            <span class="dot {% if garage.is_active %} green {% endif %}"></span>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,15 +1,16 @@
 from django import forms
 from django.db import models
-
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from garage.models import Garage, Vehicle
+from directory.models import User
+
 
 class GarageForm(forms.ModelForm):
+    vehicles = forms.ModelMultipleChoiceField(queryset=Vehicle.objects.all())
 
     class Meta:
         model = Garage
-        exclude = ()
-
-    vehicles = forms.ModelMultipleChoiceField(queryset=Vehicle.objects.all())
+        exclude = ['is_active', 'phone', 'email']
 
     def __init__(self, *args, **kwargs):
         super(GarageForm, self).__init__(*args, **kwargs)
@@ -17,10 +18,25 @@ class GarageForm(forms.ModelForm):
             self.fields['vehicles'].initial = self.instance.vehicles.all()
 
     def save(self, *args, **kwargs):
-        # FIXME: 'commit' argument is not handled
-        # TODO: Wrap reassignments into transaction
-        # NOTE: Previously assigned Foos are silently reset
         instance = super(GarageForm, self).save(commit=False)
         self.fields['vehicles'].initial.update(garage=None)
         self.cleaned_data['vehicles'].update(garage=instance)
         return instance
+
+
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField(label = "Email")
+
+    class Meta:
+        model = User
+        fields = ("username", "name", "email", "phone")
+
+
+class UserUpdateForm(UserChangeForm):
+    email = forms.EmailField(label = "Email")
+
+    class Meta:
+        model = User
+        fields = ("username", "name", "email", "phone")
+        exclude = ("password",)

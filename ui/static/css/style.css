@@ -1,0 +1,46 @@
+body {
+    padding-left: 15px;
+}
+
+.page-header {
+    background-color: darkblue;
+    margin: 0 0 10px 0;
+    padding: 20px 20px 20px 40px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+.garage-set {
+    padding: 10px 0 20px 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card {
+    margin: 10px 10px 10px 10px;
+}
+
+.dot {
+    height: 5px;
+    width: auto;
+    background-color: red;
+    display: block;
+    margin: 10px;
+}
+
+.green {
+    background-color: green;
+}

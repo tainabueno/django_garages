@@ -1,0 +1,22 @@
+model,color,brand,body,year
+gol,yellow,vw,car,1990
+polo,black,vw,car,1992
+saveiro,red,vw,car,1992
+amarok,green,vw,car,1993
+palio,blue,fiat,car,1995
+strada,yellow,fiat,car,1996
+argo,white,fiat,car,2001
+fiesta,black,ford,car,2002
+fusion,green,ford,car,2020
+ranger,blue,ford,car,2008
+onix,red,gm,car,2010
+cruz,red,gm,car,2014
+joy,black,gm,car,2017
+cg 125,blue,honda,motorcycle,2019
+cg 150,green,honda,motorcycle,2003
+cg 160,yellow,honda,motorcycle,2009
+biz 110,red,honda,motorcycle,2010
+biz 125,black,honda,motorcycle,2014
+pop 110,white,honda,motorcycle,2020
+pcx,green,honda,motorcycle,2006
+xre 300,blue,honda,motorcycle,2005
