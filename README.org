@@ -1,0 +1,12 @@
+* Django Garage
+
+  Here we present you a simple application to manage vehicles, users, and garages.
+
+  This application allows you to:
+  - Create vehicles, users and garages throught the Django Admin
+  - Create relationships within this objects.
+  - Retrieve:
+    - List of users
+    - List of garages
+    - List of vehicles per garage
+    - Lists of users with and without a vehicles
