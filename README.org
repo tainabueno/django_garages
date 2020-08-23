@@ -12,6 +12,18 @@
     - Lists of users with and without a vehicles
 
 
+* How to Run
+
+** Docker
+
+In order to run the project using Docker you must execute the following two commands:
+
+~docker-compose build~
+
+
+~docker-compose up~
+
+
 * Requisitos
 
 1. Crie uma aplicação django que guarde os dados cadastrais de uma pessoa; não precisa realizar um cadastro completo, apenas nome, telefone e e-mail já é suficiente. Para facilitar o entendimento, vamos chamar essa aplicação de Pessoa.

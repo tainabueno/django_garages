@@ -12,3 +12,4 @@ build:
 	$(DJANGO_MANAGEMENT) makemigrations
 	$(DJANGO_MANAGEMENT) migrate
 	$(DJANGO_MANAGEMENT) make_admin
+	$(DJANGO_MANAGEMENT) create_vehicles
