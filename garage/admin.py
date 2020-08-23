@@ -7,8 +7,12 @@ class VehiclesAdmin(admin.ModelAdmin):
     pass
 
 
+class VehiclesInline(admin.StackedInline):
+    model = Vehicle
+
+
 class GarageAdmin(admin.ModelAdmin):
-    form = GarageForm
+    inlines = [VehiclesInline]
 
 
 admin.site.register(Vehicle, VehiclesAdmin)
